@@ -1,0 +1,652 @@
+/* ----------- Hero ----------- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 85px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0;
+  color: #37383c;
+  font-weight: bold;
+  font-size: 55px;
+}
+
+.hero p {
+  margin: 27px 0;
+  color: #4c596a;
+  font-size: 24px;
+  line-height: 200%;
+  max-width: 880px;
+}
+
+.hero__button {
+  display: inline-block;
+  width: 178px;
+  border: 1px solid #006aff;
+  line-height: 50px;
+  transition: all 0.3s;
+}
+
+.hero__button:hover {
+  background-color: rgb(255 255 255);
+  color: #006aff;
+}
+/* END - Hero */
+
+/* ----------- Video ----------- */
+.video-section {
+  padding: 0 0 80px 0;
+  text-align: center;
+  position: relative;
+}
+
+.video-section::before {
+  height: 11.71875vw;
+  border-left: 0.13vw solid #979797;
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+}
+
+.video-section h2 {
+  margin-top: 15.625vw;
+}
+
+.video-section video {
+  width: 100%;
+  max-width: 830px;
+}
+/* END - Video */
+
+/* ----------- Work Play ----------- */
+.workplay-section {
+  text-align: center;
+  position: relative;
+  margin-bottom: 35px;
+}
+
+.common-StripeGrid {
+  --stripe-height: 48px;
+  --content-columns: 12;
+  --gutter-columns: 4;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.common-StripeGrid.anchorBottom .backgroundContainer,
+.common-StripeGrid.anchorBottom .stripeContainer {
+  justify-content: flex-end;
+}
+
+.common-StripeGrid .backgroundContainer,
+.common-StripeGrid .stripeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: skewY(-12deg);
+  justify-content: flex-end;
+}
+
+.common-StripeGrid.anchorBottom .grid {
+  height: 200%;
+  align-content: end;
+}
+
+.common-StripeGrid .backgroundContainer .grid {
+  grid-template-columns: 1fr;
+  min-width: 0;
+}
+
+.common-StripeGrid .grid {
+  --gutter-column-width: var(--content-column-width);
+  min-width: calc(
+    1040px / var(--content-columns) *
+      (var(--gutter-columns) * 2 + var(--content-columns))
+  );
+}
+
+.common-StripeGrid .grid {
+  --content-column-width: minmax(0, calc(1040px / var(--content-columns)));
+  --gutter-column-width: var(--content-column-width);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(auto-fill, var(--stripe-height));
+  grid-template-columns:
+    [viewport-start] 1fr [left-gutter-start] repeat(
+      var(--gutter-columns),
+      var(--gutter-column-width)
+    )
+    [left-gutter-end content-start] repeat(
+      var(--content-columns),
+      var(--content-column-width)
+    )
+    [content-end right-gutter-start] repeat(
+      var(--gutter-columns),
+      var(--gutter-column-width)
+    )
+    [right-gutter-end] 1fr [viewport-end];
+}
+
+.common-StripeGrid .backgroundContainer .background {
+  grid-row: 1/-1;
+  grid-column: 1/-1;
+  z-index: -1;
+}
+
+.common-StripeGrid.anchorBottom .backgroundContainer,
+.common-StripeGrid.anchorBottom .stripeContainer {
+  justify-content: flex-end;
+}
+
+.common-StripeGrid .stripeContainer {
+  overflow: hidden;
+}
+
+.common-StripeGrid .backgroundContainer,
+.common-StripeGrid .stripeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: skewY(-12deg);
+}
+
+.common-StripeGrid .stripeContainer .stripe:first-child {
+  grid-row: -10;
+  grid-column: left-gutter-start/span 3;
+  box-shadow: inset 0 0 0 1.5px #e6ebf1;
+}
+
+.common-StripeGrid .stripeContainer .stripe:nth-child(2) {
+  grid-row: -9;
+  grid-column: 4 / span 2;
+  background-color: #c4f0ff;
+  margin-top: -2px;
+}
+
+.common-StripeGrid .stripeContainer .stripe:nth-child(3) {
+  grid-row: -8;
+  grid-row: -6;
+  grid-column: span 2 / right-gutter-end;
+  background-color: #87bbfd;
+}
+
+.common-StripeGrid .stripeContainer .stripe:nth-child(4) {
+  grid-row: -5;
+  grid-column: right-gutter-start/span 2;
+  box-shadow: inset 0 0 0 1.5px #e6ebf1;
+}
+
+.common-StripeGrid .stripeContainer .stripe:nth-child(5) {
+  grid-row: -4;
+  grid-column: left-gutter-start/span 3;
+  background-color: #87bbfd;
+}
+
+.common-StripeGrid .stripeContainer .stripe:nth-child(6) {
+  grid-row: -3;
+  grid-column: viewport-start/span 6;
+  background-color: #424770;
+}
+
+.common-StripeGrid .stripeContainer .stripe:nth-child(7) {
+  grid-row: -2;
+  grid-column: 3 / span 3;
+  background-color: #c4f0ff;
+}
+
+.common-StripeGrid .stripeContainer .stripe:nth-child(8) {
+  grid-row: -2;
+  grid-column: 6 / span 3;
+  background-color: #6772e5;
+}
+
+.common-StripeGrid .stripeContainer .stripe:nth-child(9) {
+  grid-row: -2;
+  grid-column: span 3 / right-gutter-end;
+  background-color: #6772e5;
+}
+
+.workplay-box {
+  border-radius: 10px;
+  box-shadow: 0px 8px 24px rgb(54 97 174 / 10%);
+  padding: 68px 58px;
+  background-color: #fff;
+}
+
+.workplay-box__title {
+  margin: 0 0 25px 0;
+  text-align: center;
+}
+
+.workplay-box__description {
+  color: #4c596a;
+  font-size: 20px;
+  text-align: center;
+}
+
+.workplay-characteristics-container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.workplay-characteristics-wrapper:not(:last-child) {
+  border-right: 1px solid rgb(0 0 0 / 10%);
+  padding-right: 20px;
+  margin-right: 20px;
+}
+
+.workplay-characteristics-wrapper h3 {
+  font-size: 20px;
+  color: #323232;
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+.workplay-characteristics-wrapper p {
+  font-size: 18px;
+}
+/* END - Work Play */
+
+/* ----------- Shift Life ----------- */
+.shift-life-section {
+  padding: 50px 0;
+}
+
+.shift-life-highlight-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.shift-life-highlight {
+  width: 30%;
+}
+
+.shift-life__subtitle {
+  margin-block-start: 20px;
+  margin-block-end: 0px;
+  font-size: 24px;
+  font-weight: 500;
+}
+/* END - Shift Life */
+
+/* ----------- Shift Perks ----------- */
+.perks-section {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: auto;
+  margin: 90px auto 135px auto;
+}
+
+.perks-pic-aside {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  display: flex;
+  justify-content: center;
+  perspective: 500px;
+  position: relative;
+}
+
+.perks-pic-aside:hover img {
+  transform: rotateY(0deg) skewY(0deg) scale(0.9) translate3d(0rem, 0, 0rem);
+}
+
+.perks-pic-aside:hover .perks-pic-aside-box1, 
+.perks-pic-aside:hover .perks-pic-aside-box2 {
+  transform: rotateY(0deg) skewY(0deg) scale(0.9) translate3d(0rem, 0, 0rem);
+} 
+
+.perks-pic-aside a {
+  width: 80%;
+}
+
+.perks-pic-aside img {
+  border-radius: 10px;
+  width: 100%;
+  min-width: 300px;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+  box-shadow: 0 6.7px 10.8px -15px rgba(0, 0, 0, 0.1),
+    0 22.3px 36.2px -16px rgba(6, 6, 31, 0.3),
+    0 100px 162px -16px rgba(17, 25, 136, 0.06);
+  transform-style: preserve-3d;
+  transform: rotateY(20deg) skewY(-5deg) scale(0.8) translate3d(2.7rem, 0, 1rem);
+  z-index: 1;
+  transition: 0.4s transform cubic-bezier(0.460, -0.275, 0.590, 1.250);
+}
+
+.perks-pic-aside-box1 {
+  width: 60%;
+  height: 50%;
+  top: -8%;
+  left: 0%;
+  background-color: #b5bbff;
+  border-radius: 10px;
+  position: absolute;
+  transform: rotateY(20deg) skewY(-5deg) scale(0.8) translate3d(2.7rem, 0, 1rem);
+  transition: 0.4s transform cubic-bezier(0.460, -0.275, 0.590, 1.250);
+}
+
+.perks-pic-aside-box2 {
+  width: 50%;
+  height: 50%;
+  bottom: -8%;
+  right: 8%;
+  background-color: #C2FBFF;
+  border-radius: 10px;
+  position: absolute;
+  transform: rotateY(20deg) skewY(-5deg) scale(0.8) translate3d(2.7rem, 0, 1rem);
+  transition: 0.4s transform cubic-bezier(0.460, -0.275, 0.590, 1.250);
+}
+
+.perks-text-aside {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+}
+
+.perks-text-aside h2 {
+  margin-top: 0;
+}
+
+.perks-list li {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.perks-list li img {
+  filter: drop-shadow(0 2px 4px rgb(0 0 0 / 12%));
+  margin-right: 14px;
+}
+
+/* END - Shift Perks */
+
+/* ----------- Shift Picture ----------- */
+.shift-picture-section {
+  text-align: center;
+}
+
+.shift-picture-section h2 {
+  margin-bottom: 25px;
+}
+
+.shift-picture-section p {
+  color: #4c596a;
+  font-size: 20px;
+  margin: 0 0 56px 0;
+}
+
+.shift-picture-grid {
+  display: grid;
+  grid-template-rows: 202fr 53fr 15fr 190fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.shift-picture-grid-item {
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 101%;
+  transition: all 0.5s ease-in;
+}
+
+.shift-picture-grid-item:first-child {
+  grid-row: 1 / 2;
+  aspect-ratio: 370 / 202;
+  max-height: 202px;
+  background-image: url('/img/careers/gallery-1.jpg');
+}
+
+.shift-picture-grid-item:nth-child(2) {
+  grid-row: 1 / 4;
+  background-image: url('/img/careers/gallery-2.jpg');
+}
+
+.shift-picture-grid-item:nth-child(3) {
+  grid-row: 1 / 3;
+  background-image: url('/img/careers/gallery-3.jpg');
+  background-size: 103%;
+}
+
+.shift-picture-grid-item:nth-child(4) {
+  grid-row: 2 / 5;
+  background-image: url('/img/careers/gallery-4.jpg');
+}
+
+.shift-picture-grid-item:nth-child(5) {
+  grid-row: 4 / 5;
+  background-image: url('/img/careers/gallery-5.jpg');
+}
+
+.shift-picture-grid-item:nth-child(6) {
+  grid-row: 3 / 5;
+  background-image: url('/img/careers/gallery-6.jpg');
+}
+
+.shift-picture-grid-item:hover {
+  background-size: 105%;
+  opacity: 0.8;
+}
+/* END - Shift Picture */
+
+/* ----------- Review ----------- */
+.review-section {
+  margin: 100px 0 50px 0;
+  background: #EDF0F3;
+  padding-bottom: 40px;
+}
+
+.review-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+.review-paragraph {
+  font-size: 24px;
+  color: #5B616E;
+  text-align: center;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+}
+
+.review-author img {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.review-author p {
+  margin: 0;
+}
+
+.review-author__name {
+  font-size: 16px;
+  color: #0A0B0D;
+  font-weight: 600;
+}
+
+.gallery {
+  background: #EDF0F3;
+  width: 90%;
+  max-width: 1126px;
+  margin: auto;
+}
+
+.gallery-cell {
+  width: 100%;
+  height: 480px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* position dots in carousel */
+.flickity-page-dots {
+  bottom: 40px;
+}
+/* white circles */
+.flickity-page-dots .dot {
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+  background: transparent;
+  background: rgb(0 0 0 / 10%);
+}
+/* fill-in selected dot */
+.flickity-page-dots .dot.is-selected {
+  background: rgb(0 0 0 / 30%);
+}
+/* END - Review */
+
+/* ----------- Jobs ----------- */
+.job-section {
+  padding: 34px 0;
+}
+
+.job-section h2 {
+  margin: 0 0 8px 0;
+  color: #37383C;
+}
+
+.job__subtitle {
+  margin-bottom: 40px;
+}
+
+.job-list-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.single-job-card {
+  display: flex;
+  min-height: 202px;
+  box-shadow: 0px 2px 7px 0px rgba(118, 118, 118, 0.25);
+  border-radius: 12px;
+  padding: 20px 25px;
+}
+
+.single-job-card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
+}
+
+.single-job-card__details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.single-job-card__type  {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px 8px;
+  border-radius: 4px;
+}
+.single-job-card__type--tech {
+  color: #6152BD;
+  background-color: #F2F4FB;
+}
+.single-job-card__type--design {
+  color: #BD5292;
+  background-color: #FBF2F6;
+}
+.single-job-card__type--sales {
+  color: #DF6E1D;
+  background-color: #FBF7F2;
+}
+
+.single-job-card__location {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.single-job-card__title {
+  color: #0D1537;
+  font-size: 20px;
+}
+
+.single-job-card__link {
+  color: #0B8AFF;
+  border: 1px solid;
+  width: 90px;
+  height: 38px;
+}
+/* END - Job */
+
+@media screen and (max-width: 1000px) {
+  .job-list-container {
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .single-job-card {
+    padding: 20px 25px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .perks-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10vh;
+  }
+
+  .shift-picture-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .shift-picture-grid-item {
+    min-width: 200px;
+    width: 40%;
+    max-width: 300px;
+    min-height: 110px;
+    height: 20vw;
+    max-height: 163px;
+  }
+
+  .shift-picture-grid-item:first-child {
+    aspect-ratio: unset;
+  }
+
+  .job-list-container {
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
+  }
+}
